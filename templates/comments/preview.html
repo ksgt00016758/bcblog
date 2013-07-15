@@ -1,0 +1,62 @@
+{% extends "_base.html" %}
+{% load comments %}
+
+{% block title %}{% trans "Preview your comment" %} - Woody的博客{% endblock %}
+
+{% block content %}
+  <p>
+      <a class="btn btn-danger" id="cancel_comment_btn" href="#">&laquo; 放弃评论，返回文章</a>
+  </p>
+  <form action="{% comment_form_target %}" method="post" class="comment_form">{% csrf_token %}
+    {% if next %}<input type="hidden" name="next" value="{{ next }}" id="comment_next_url"/>{% endif %}
+    {% if form.errors %}
+        <h2>{% blocktrans count counter=form.errors|length %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h2>
+        <hr/>
+    {% else %}
+        <h2>你的评论显示效果如下</h2>
+        <hr/>
+        <blockquote>{{ comment|wiki2html|safe }}</blockquote>
+        <br/>
+        <p>
+                                  你可以 <input type="submit" name="submit" class="btn btn-primary" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}:
+        </p>
+    {% endif %}
+    {% for field in form %}
+        {% if field.is_hidden %}
+            {{ field }}
+        {% else %}
+            <div class="control-group{% if field.errors %} error{% endif %}"{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+                {{ field.label_tag }}
+                <div class="controls">
+                    {{ field }}
+                    {% if field.errors %}<span class="help-inline">{{ field.errors }}</span>{% endif %}
+                    {% ifequal field.name "comment" %}
+                        <p>
+                            <em>评论内容支持<a href="http://wikicreole.org/attach/CheatSheet/creole_cheat_sheet.png" target="_blank">Creole WIKI</a>格式</em>
+                        </p>
+                    {% endifequal %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <p class="submit">
+        <input type="submit" name="post" class="btn btn-primary" value="{% trans "Post" %}" />
+        <input type="submit" name="preview" class="btn" value="{% trans "Preview" %}" />
+    </p>
+  </form>
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+$(function(){
+    $('#cancel_comment_btn').click(function(){
+        var backUrl = $('#comment_next_url').val();
+        if (backUrl) {
+            window.location.href = backUrl;
+        } else {
+            window.history.back();
+        }
+    });
+});
+</script>
+{% endblock extra_js %}

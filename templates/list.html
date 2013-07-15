@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+
+{% block content %}
+{% if tag %}
+<ul class="breadcrumb">
+  <li>
+    <a href="{% url home %}">主页</a> <span class="divider">/</span>
+  </li>
+  <li class="active">标签“{{ tag }}”</li>
+</ul>
+{% elif keyword %}
+<ul class="breadcrumb">
+  <li>
+    <a href="{% url home %}">主页</a> <span class="divider">/</span>
+  </li>
+  <li class="active">搜索 “{{ keyword }}”</li>
+</ul>
+{% endif %}
+
+{% for blog in blogs %}
+<section class="article-list">
+    <div class="post_header">
+        <div class="post_date">
+            {{ blog.created|date:'d' }}<span>{{ blog.created|date:'Ym' }}</span>
+        </div>
+        <h1><a href="{% url post-detail blog.id %}">{{ blog.title }}</a></h1>
+    </div>
+    <address class="post_infos">
+        {% for t in blog.tags.all %}
+            <a href="{% url list-by-tag t.id %}" class="label tag">{{ t.name }}</a>    
+        {% empty %}
+            &nbsp;
+        {% endfor %}
+    </address>
+    {{ blog.content|wiki2html|slice:'300'|safe }}
+    <p><a class="btn" href="{% url post-detail blog.id %}">View details &raquo;</a></p>
+</section>
+{% empty %}
+<section class="article-list">
+        没有找到任何记录。
+</section>
+{% endfor %}
+{% endblock content %}

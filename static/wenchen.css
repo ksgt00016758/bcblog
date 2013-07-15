@@ -1,0 +1,127 @@
+/*overwrite bootstrap*/
+body{
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url(images/body-bak.png);
+    background-repeat: repeat-x;
+    background-position: 0 40px;
+}
+hr{
+    border-top: 1px solid #ddd;
+}
+.navbar-fixed-top .brand {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+.navbar-fixed-top .brand:hover {
+  text-decoration: none;
+  color: #111;
+}
+footer{
+    padding-bottom: 10px;
+}
+/*end bootstrap rewrite*/
+/*
+#content{
+    padding-top: 80px;
+}
+*/
+.article-list{
+    padding-bottom: 35px;
+}
+.post{
+    margin-bottom: 20px;
+}
+.post pre, #comments pre{
+    background-color: #f9f9f9;
+    margin-top: 9px;
+}
+.post_header{
+    background-color: #DEDEDE;
+    box-shadow: 0 3px 3px -3px #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.post_date {
+    float: left;
+    width: 60px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 40px;
+    text-align: center;
+    padding: 25px 10px 20px;
+    background-color: #666;
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 3px -3px #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.post_date span {
+    display: block;
+    margin-top: 8px;
+    font-size: 17px;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.post_header h1 {
+    padding-left: 100px;
+    line-height: 59px;
+}
+.post_header h1 a{
+    display: block;
+    width: 100%;
+}
+.post_infos {
+    text-align: right;
+    padding: 20px 5px 0px 5px;
+}
+a.tag{
+    margin-left: 10px;
+    background-color:#08C;
+}
+a.tag:hover{
+    background-color:#2D6987;
+}
+.tag_list h4{
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+.tag_list p{
+    padding-left: 10px;
+}
+.tag_list span{
+    padding-left: 10px;
+}
+.comment_form textarea{
+    width: 60%;
+    height: 100px;
+    min-width: 210px;
+}
+ul.errorlist, ul.errorlist li{
+    display: inline-block;
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+}
+.power-link-wcblog {
+    background-image: url(images/wcblog.jpg);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border: none;
+    cursor: pointer;
+}
+.power-link-wcblog:hover{
+    text-decoration: none;
+}

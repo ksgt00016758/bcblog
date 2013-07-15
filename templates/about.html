@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% load comments %}
+
+{% block content %}
+<section class="well post">
+    <h1>{{ flatpage.title }}</h1>
+    <hr/>
+    <div>
+        {{ flatpage.content }}
+    </div>
+</section>
+
+<hr/>
+{% render_comment_list for flatpage %}
+{% render_comment_form for flatpage %}
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+$(function(){
+    $('.well.post').find('table').addClass('table table-bordered table-striped');
+    $('#comment_next_url').val('{{ flatpage.url }}');
+    //$('.comment_form').find('textarea').css({'width':'60%','height':'100px','min-width':'210px'});
+    var _url = window.location.href;
+    var p = _url.indexOf('?c=');
+    if (p != -1) {
+        var cid = _url.slice(p +3);
+        var cObj = document.getElementById('c'+ cid);
+        if (cObj) {
+            cObj.scrollIntoView();    
+        }
+    }
+});
+</script>
+{% endblock extra_js %}

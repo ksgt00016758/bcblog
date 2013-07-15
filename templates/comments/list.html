@@ -1,0 +1,10 @@
+<section id="comments">
+  {% for comment in comment_list %}
+    <blockquote id="c{{ comment.id }}">
+        <small>{{ comment.submit_date }} - {{ comment.name }}</small>
+        <p>{{ comment.comment|wiki2html|safe }}</p>
+    </blockquote>
+  {% endfor %}
+</section>
+
+

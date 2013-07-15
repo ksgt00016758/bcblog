@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+    {{ title }} - {% trans 'WCBlog' %}
+{% endblock %}
+
+{% block branding %}
+<!--h1 id="site-name">{% trans 'Django site admin' %}</h1-->
+<h1 id="site-name">
+    <a target="_blank" href="{% url home %}" title="wcblog">
+        WCBlog
+    </a>
+</h1>
+
+{% endblock %}

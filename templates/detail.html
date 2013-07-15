@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ blog.title }} - Woody的博客 {% endblock %}
+{% block description %}{{blog.content|slice:'100'}}{% endblock %}
+{% block keywords %}{{ blog.title }}, {{ block.super }}{% endblock %}
+
+{% block extra_css %}
+<link href="/static/google-code-prettify/prettify.css" rel="stylesheet">
+{% endblock extra_css %}
+
+{% load tz %}
+{% load comments %}
+
+{% block content %}
+<section class="well post">
+    <h1>{{ blog.title }}</h1>
+    <address class="post_infos">
+                            发表于{{ blog.created|localtime }} {% if TIME_ZONE %}（{{TIME_ZONE}}）{% endif %}
+        &nbsp;
+        {% for t in blog.tags.all %}
+            <a href="{% url list-by-tag t.id %}" class="label tag">{{ t.name }}</a>    
+        {% endfor %}
+    </address>
+    <hr/>
+    <div>
+        {{ blog.content|wiki2html|safe }}
+    </div>
+</section>
+
+<p>
+    <span class="label label-info">郑重声明</span> 除非注明，本站文章均为原创或编译，转载请注明： 文章来自 <code>http://wenchen.me</code>
+</p>
+
+<hr/>
+{% render_comment_list for blog %}
+{% render_comment_form for blog %}
+{% endblock content %}
+
+{% block extra_js %}
+<script src="/static/google-code-prettify/prettify.js"></script>
+
+<script>
+$(function(){
+    // prettify post content
+    $('.well.post').find('table').addClass('table table-bordered table-striped')
+        .end().find('pre').addClass('prettyprint linenums');
+    
+    //$('.comment_form').find('textarea').css({'width':'60%','height':'100px','min-width':'210px'});
+    
+    // see the comments
+    var _url = window.location.href;
+    var p = _url.indexOf('?c=');
+    if (p != -1) {
+        var cid = _url.slice(p +3);
+        var cObj = document.getElementById('c'+ cid);
+        if (cObj) {
+            cObj.scrollIntoView();    
+        }
+    }
+    
+    window.prettyPrint && prettyPrint();
+});
+</script>
+{% endblock extra_js %}
