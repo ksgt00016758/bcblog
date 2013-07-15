@@ -1,9 +1,10 @@
 /*overwrite bootstrap*/
 body{
     font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-image: url(images/body-bak.png);
+    /*background-image: url(../images/body-bak.png);
     background-repeat: repeat-x;
-    background-position: 0 40px;
+    background-position: 0 40px;*/
+    background:#000 url(../images/bg.jpg) repeat center center;
 }
 hr{
     border-top: 1px solid #ddd;
@@ -114,7 +115,7 @@ ul.errorlist, ul.errorlist li{
     margin:0px;
 }
 .power-link-wcblog {
-    background-image: url(images/wcblog.jpg);
+    background-image: url(../images/wcblog.jpg);
     background-repeat: no-repeat;
     width: 50px;
     height: 50px;

@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'common',
     'blog',
+    'space',
 )
 
 try:
