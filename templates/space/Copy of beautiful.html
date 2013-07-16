@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>图片拼接</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://open.web.meitu.com/sources/xiuxiu.js" type="text/javascript"></script>
+<script type="text/javascript">
+window.onload=function(){
+ xiuxiu.embedSWF("altContent",2,"540","400");
+       /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
+ 
+ xiuxiu.setUploadURL("http://127.0.0.1:8000/space/uploadMeitu/");//修改为您自己的上传接收图片程序
+ xiuxiu.setUploadType(2);
+ xiuxiu.setUploadDataFieldName("Filedata");
+ xiuxiu.onInit = function ()
+ {
+  xiuxiu.loadPhoto("http://localhost/static/upload/1.jpg");//这里为要初始加载的图片
+  // xiuxiu.loadPhoto("http://open.web.meitu.com/sources/images/1.jpg");
+ } 
+  xiuxiu.setUploadType(2);//设置为2代表使用标准表单上传照片，具体可参考美图秀秀api官网http://open.web.meitu.com/wiki/
+ xiuxiu.setUploadDataFieldName("Filedata");//这是设置表单名（相当于：<input type="file" name="Filedata" />）
+ xiuxiu.onUploadResponse = function (data)//是否开启调试模式
+ {
+  alert("上传响应" + data);  
+ }
+}
+</script>
+<style type="text/css">
+ html, body { height:100%; overflow:hidden; }
+ body { margin:0; }
+</style>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data" action="/upload/">
+<div id="altContent">
+</div>
+
+</form>
+</body>
+</html>

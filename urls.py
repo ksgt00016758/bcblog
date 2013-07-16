@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 from django import template
@@ -24,4 +25,6 @@ urlpatterns = patterns('',
     
     (r'^comments/', include('django.contrib.comments.urls')),
     url(r'^space/', include('space.urls')),
+    url(r'crossdomain.xml$',direct_to_template, {'template': 'crossdomain.xml', 'mimetype': 'text/plain'}),
+
 )
