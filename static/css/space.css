@@ -113,6 +113,7 @@ body{
     -moz-box-shadow:1px 1px 7px #000;
     -webkit-box-shadow:1px 1px 7px #000;
     box-shadow:1px 1px 7px #000;
+    nax-width:200px;
 }
 .pp_descr{
     height:45px;
