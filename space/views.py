@@ -12,59 +12,72 @@ from django.views.decorators.csrf import csrf_exempt
 from django import shortcuts
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 from jfu.http import upload_receive, UploadResponse, JFUResponse
-from space.models import Photo 
+from space.models import Photo, PhotoAlbum
 
 
 
 LOG = logging.getLogger('bcblog')
 
 def spaceHome(request):       
-
+    
+    photoAlbums = PhotoAlbum.objects.all()
     return shortcuts.render_to_response('space/index.html', 
-    									{'STATIC_URL':settings.STATIC_URL}, 
+    									{'STATIC_URL':settings.STATIC_URL,
+                                         'photoAlbums':photoAlbums}, 
     									context_instance=RequestContext(request))
 
 def beautifulHome(request):       
-
+    
+    photoAlbums = PhotoAlbum.objects.all()
     return shortcuts.render_to_response('space/beautiful.html', 
+                                        {'STATIC_URL':settings.STATIC_URL,
+                                         'photoAlbums':photoAlbums}, 
+                                        context_instance=RequestContext(request))
+def uploadHome(request):       
+
+    return shortcuts.render_to_response('space/upload.html', 
                                         {'STATIC_URL':settings.STATIC_URL}, 
                                         context_instance=RequestContext(request))
 
 @csrf_exempt
 def uploadMeitu(request):
-    print('Call this function')
+
     file=request.FILES.get('Filedata',None) 
-    print('file' + file.name)
+    print 'Begin' 
+    name=request.POST['name']
+    print name 
     ext_allowed = ['gif', 'jpg', 'jpeg', 'png']
     max_size = 2621440
-    today = datetime.datetime.today()
-    print('datetime' + file.name)
-    save_dir = 'static/upload/images/'
-    save_path=save_dir
-    if not file.name:
-        print '文件不存在！'
+    
     ext = file.name.split('.').pop()
     if ext not in ext_allowed:
         print '不是所要求的图片格式'
-    print('new_file1' + file.name)
+        json_data = {'result': '不是所要求的图片格式'}
+        return HttpResponse(json.dumps(json_data), mimetype='application/json')
+    #print('new_file1' + file.name)
     if file.size > max_size:
         print '===tada'
-    print('new_file12' + file.name)
-    if not os.path.isdir(save_path):
-        print('new_file2' + file.name)
-        os.makedirs(save_path)
-    print('new_file3' + ext)
-    new_file = '%s.%s' % ('test', ext)
-    print('new_file' + new_file)
-    t=save_path+new_file
-     # k=t[-46:]
-    im =Image.open(file)
-     # im.thumbnail((132, 132))
-    im.save(t)
-    print 'save ok1!'
-    json_data = {'result': '0'}
+    #print('new_file12' + file.name)
+    #if not os.path.isdir(save_path):
+        #print('new_file2' + file.name)
+        #os.makedirs(save_path)
+    #print('new_file3' + ext)
+    album_name = 'ablum1'
+   
+    try:
+        photo_album =PhotoAlbum.objects.get(name=name)
+    except (PhotoAlbum.DoesNotExist):
+        print "photo_album.name Not exit"
+    
+    print photo_album.name
+    photo = Photo.objects.create(file=file,
+                         description="default",
+                         photo_album=photo_album)
+
+    json_data = {'result': '上传成功'}
     print 'save ok!'
     return HttpResponse(json.dumps(json_data), mimetype='application/json')
    

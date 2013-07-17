@@ -7,4 +7,5 @@ urlpatterns = patterns('space.views',
    	url( r'upload/', 'upload', name='jfu_upload' ),
    	url( r'^delete/(?P<pk>\d+)$', 'upload_delete', name = 'jfu_delete' ),
     url( r'uploadMeitu/', 'uploadMeitu', name='upload-meitu' ),
+    url( r'uploadHome/', 'uploadHome', name='upload-home' ),
 )

@@ -1,0 +1,14 @@
+*.pyc
+*.bak
+*.mo
+*.log
+/local_settings.py
+.project
+.pydevproject
+.settings
+local_settings.py
+*.db
+
+# for MAX OS X
+*.DS_Store
+*._*

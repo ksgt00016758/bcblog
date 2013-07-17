@@ -2,12 +2,9 @@
         {% block extra_css %}
             <link rel="shortcut icon" href="/static/static/images/favicon.ico" type="image/x-icon"/>
             <link rel="stylesheet" href="/static/css/space.css" type="text/css" />
-            <link rel="stylesheet" href="/static/css/buttons.css" type="text/css" />
             <style type="text/css">
 		         html, body { height:100%; overflow:hidden; }
 		         body { margin:0; }
-		         .selected { color:blue; }
-                 .highlight { background:yellow; }
             </style>
         {% endblock extra_css %}
         
@@ -17,14 +14,13 @@
         xiuxiu.params.wmode = "transparent";
         /* xiuxiu.setLaunchVars("preventBrowseDefault", 1); */
         window.onload=function(){
-         xiuxiu.embedSWF("altContent",1,"540","400","lite1");
-         xiuxiu.embedSWF("altContent1",2,"540","400","lite2");
+         xiuxiu.embedSWF("altContent",1,"540","400","lite");
+         xiuxiu.embedSWF("altContent1",2,"540","400",'2');
                /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
          
          xiuxiu.setUploadURL("http://127.0.0.1:8000/space/uploadMeitu/");//修改为您自己的上传接收图片程序
          xiuxiu.setUploadType(2);
          xiuxiu.setUploadDataFieldName("Filedata");
-         
          xiuxiu.onInit = function ()
          {
           xiuxiu.loadPhoto("http://127.0.0.1:8000/static/upload/images/test1.jpg");//这里为要初始加载的图片
@@ -40,48 +36,13 @@
          {
              alert("打开自定义照片选择器");
          }
-         xiuxiu.onBeforeUpload = function(data, id) {
-        	 
-        	 //alert("选择相册");
-         }
         }
         </script>
         {% endblock extra_js1 %}
         {% block content %}
-        <article class="span12">
-              <article class ='span3'>
-              </article>
-              <article class ='span5'>
-              {% for photoAlbum in photoAlbums %}
-                    <a href="#" class="button button-circle button-action" name="{{photoAlbum.name}}">{{photoAlbum.name}}</a>
-               {% endfor %}
-               </article>
-               <article class ='span3'>
-              </article>
-               
-        </article>
-         <article class="span12">
-	        <div id="altContent">
-	        </div>
-	        <div id="altContent1">
-	        </div>
-        </article>
+        <div id="altContent">
+        </div>
+        <div id="altContent1">
+        </div>
         {% endblock %}
-        
-         {% block extra_js %}
-          <script type="text/javascript">
-             $(function() {   
-             
-                $('.button-circle').bind('click',function(){
-                   name= $(this).attr('name')
-                   xiuxiu.setUploadArgs({name:name},"lite1");
-                   xiuxiu.setUploadArgs({name:name},"lite2");
-                   console.debug('Name equal' +name);
-                   $(this).addClass("selected");
-                   $(this).siblings().removeClass("selected");
-                });
-             
-             });
-            </script>
-         {% endblock extra_js %}
       

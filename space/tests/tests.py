@@ -1,7 +1,7 @@
 import os
 import Image, ImageDraw, ImageFont
 from django.test import TestCase
-from space.models import Photo
+from space.models import Photo, PhotoAlbum
 from django.core.urlresolvers import reverse
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -22,11 +22,7 @@ class SapceTest(TestCase):
         nim.save( "resized.jpg" )
     
     def test_upload(self):
-        self.post_url = reverse('jfu_upload')    
-        data = {'description': 'test-post-create',
-                'files[]': open(self.photo_path)}
-        
-        self.client.post(self.post_url, data)
-        
-        posts = Photo.objects.all()
-        self.assertEqual(len(photos), 1)
+        photo_album = PhotoAlbum.objects.create(name='bruce')
+        photo = Photo.objects.create(file=open(self.photo_path),
+                         description="default",
+                         photo_album=photo_album)
