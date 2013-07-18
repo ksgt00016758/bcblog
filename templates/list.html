@@ -1,5 +1,16 @@
 {% extends '_base.html' %}
 
+{% block extra_css %}
+         <style>
+            body {
+                padding-top: 80px;
+                backgroud:#ffffff;
+                /* 60px to make the container go all the way to the bottom of the topbar */
+                /* bootstrap-responsive.css will rewrite it to 0 */
+            }
+        </style>
+{% endblock extra_css %}
+
 {% block content %}
 {% if tag %}
 <ul class="breadcrumb">
@@ -19,21 +30,23 @@
 
 {% for blog in blogs %}
 <section class="article-list">
-    <div class="post_header">
-        <div class="post_date">
-            {{ blog.created|date:'d' }}<span>{{ blog.created|date:'Ym' }}</span>
-        </div>
-        <h1><a href="{% url post-detail blog.id %}">{{ blog.title }}</a></h1>
+    <div class="blog-section">
+	    <div class="post_header">
+	        <div class="post_date">
+	            {{ blog.created|date:'d' }}<span>{{ blog.created|date:'Ym' }}</span>
+	        </div>
+	        <h1><a href="{% url post-detail blog.id %}">{{ blog.title }}</a></h1>
+	    </div>
+	    <address class="post_infos">
+	        {% for t in blog.tags.all %}
+	            <a href="{% url list-by-tag t.id %}" class="label tag">{{ t.name }}</a>    
+	        {% empty %}
+	            &nbsp;
+	        {% endfor %}
+	    </address>
+	    {{ blog.content|wiki2html|slice:'300'|safe }}
+	    <p><a class="btn" href="{% url post-detail blog.id %}">View details &raquo;</a></p>
     </div>
-    <address class="post_infos">
-        {% for t in blog.tags.all %}
-            <a href="{% url list-by-tag t.id %}" class="label tag">{{ t.name }}</a>    
-        {% empty %}
-            &nbsp;
-        {% endfor %}
-    </address>
-    {{ blog.content|wiki2html|slice:'300'|safe }}
-    <p><a class="btn" href="{% url post-detail blog.id %}">View details &raquo;</a></p>
 </section>
 {% empty %}
 <section class="article-list">
@@ -41,3 +54,17 @@
 </section>
 {% endfor %}
 {% endblock content %}
+
+{% block aside %}
+<aside class="span3 tag_list">
+      <div class="blog-section">
+           {% get_article_tags as tag_list %}
+      <h4>标签与分类</h4>
+           {% for t in tag_list %}
+               <p>
+                   <a href="{% url list-by-tag t.id %}">{{ t.name }}</a><span>({{ t.article_set.count }})</span>  
+                </p>
+             {% endfor %}
+        </div>
+ </aside>
+ {% endblock %}

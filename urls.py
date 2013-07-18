@@ -11,11 +11,11 @@ template.add_to_builtins('common.templatetags.mytags')
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'blog.views.home', name='home'),
+    url(r'^blog/$', 'blog.views.home', name='blog'),
     url('^search/$', 'blog.views.search', name='search'),
     url(r'^post/', include('blog.urls')),
     
-#    url(r'^about/$', 'django.views.generic.simple.direct_to_template', {'template': 'about.html'}, name='about'),
+    url(r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'about.html'}, name='home'),
     
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

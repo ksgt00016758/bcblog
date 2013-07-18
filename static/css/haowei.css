@@ -3,8 +3,8 @@ body{
     font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*background-image: url(../images/body-bak.png);
     background-repeat: repeat-x;
-    background-position: 0 40px;*/
-    background:#000 url(../images/bg.jpg) repeat center center;
+    background-position: 0 40px;
+    background:#000 url(../images/bg.jpg) repeat center center;*/
 }
 hr{
     border-top: 1px solid #ddd;
@@ -125,4 +125,122 @@ ul.errorlist, ul.errorlist li{
 }
 .power-link-wcblog:hover{
     text-decoration: none;
+}
+
+.blog-section{
+    background: #FFF url(images/patterns/white_wall_hash.png);
+	padding: 20px;
+	margin-bottom: 120px;
+	color: #333;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-animation: panel-in 1s linear 0 1;
+	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-ms-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-o-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.navbar-inner {
+	background-color: #1b1b1b;
+	background-image: -moz-linear-gradient(top, #222222, #111111);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
+	background-image: -webkit-linear-gradient(top, #222222, #111111);
+	background-image: -o-linear-gradient(top, #222222, #111111);
+	background-image: linear-gradient(to bottom, #222222, #111111);
+	background-repeat: repeat-x;
+	border-color: #252525;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+}
+
+.description{
+
+    position: relative;
+    margin-top: -445px;
+
+}
+
+.panel-description{
+    background: rgba(255, 255, 255, 0.80);
+	color: #333;
+	padding: 0px;
+	margin-bottom: 80px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	text-shadow: 1px 1px 2px #FFF;
+	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-ms-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-o-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+
+}
+
+.padding-middle {
+    padding: 25px;
+}
+
+hr.soften {
+	height: 1px;
+	margin: 30px 0;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	border: 0;
+}
+
+
+img.profile {
+	max-width: 100px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	-webkit-transition: 500ms;
+	-moz-transition: 500ms;
+	transition: 500ms;
+	-webkit-box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+}
+
+.img-circle {
+	-webkit-border-radius: 700px;
+	-moz-border-radius: 700px;
+	border-radius: 700px;
+}
+
+img.profile:hover {
+    -webkit-animation: profile-img-hover 1000ms ease-out 100ms infinite forwards;
+}
+img.profile:active {
+    -webkit-animation: profile-img-active 500ms linear 0 infinite forwards;
+}
+
+@-webkit-keyframes profile-img-hover {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    23% { 
+        -webkit-transform: rotate(18deg);
+    }
+    25% { 
+        -webkit-transform: rotate(20deg);
+    }
+    50% { 
+        -webkit-transform: rotate(0);
+    }
+    73% { 
+        -webkit-transform: rotate(-18deg);
+    }
+    75% { 
+        -webkit-transform: rotate(-20deg);
+    }
+    100% { 
+        -webkit-transform: rotate(0);
+    }
 }
