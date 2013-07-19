@@ -164,7 +164,7 @@
                     $('<img style=""/>').load(function(){
                         var $imgL   = $(this);
                         //resize the image based on the windows size
-                        //resize($imgL);
+                        resize($imgL);
                         //create an element to include the large image
                         //and its description
                         var $preview = $('<div />',{

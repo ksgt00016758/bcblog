@@ -3,7 +3,7 @@
         {% block extra_css %}
         <style>
             body {
-                padding-top: 80px;
+                
                 background:#000 url(/static/images/space_back.png) repeat center center
                 /* 60px to make the container go all the way to the bottom of the topbar */
                 /* bootstrap-responsive.css will rewrite it to 0 */
@@ -40,34 +40,33 @@
         
         {% block content %}
         
-        <div id="pp_gallery" class="pp_gallery">
-            
-            <div id="pp_loading" class="pp_loading"></div>
-            <div id="pp_next" class="pp_next"></div>
-            <div id="pp_prev" class="pp_prev"></div>
-        </div>
-        <div id="pp_thumbContainer">
-               {% for photoAlbum in photoAlbums %}
-                <div class="album">
-                    {% for photo in photoAlbum.photo_set.all %}
-                    <div class="content">
-                        <img src="{{ photo.thumbs_file }}"  alt= "/{{ photo.file }}"/>
-                        <span>The Sixties by Tetsumo</span>
-                    </div>
-                    {% endfor %}
-                    
-                </div>
-                {% endfor %}
-   
-
-                <div id="pp_back" class="pp_back">Albums</div>
-            </div>
+        <section class = "row">
+	        <div id="pp_gallery" class="pp_gallery">
+	            
+	            <div id="pp_loading" class="pp_loading"></div>
+	            <div id="pp_next" class="pp_next"></div>
+	            <div id="pp_prev" class="pp_prev"></div>
+	        </div>
+	        </section>
+         <section class = "row">
+		        <div id="pp_thumbContainer">
+		               {% for photoAlbum in photoAlbums %}
+		                <div class="album">
+		                    {% for photo in photoAlbum.photo_set.all %}
+		                    <div class="content">
+		                        <img src="{{ photo.thumbs_file }}"  alt= "/{{ photo.file }}"/>
+		                        <span>The Sixties by Tetsumo</span>
+		                    </div>
+		                    {% endfor %}
+		                    
+		                </div>
+		                {% endfor %}
+		   
+		
+		                <div id="pp_back" class="pp_back">Albums</div>
+		            </div>
         
-        <div>
-            <span class="reference">
-                <a href="http://tympanus.net/codrops/2010/09/28/polaroid-photobar-gallery/">back to the Codrops tutorial</a>
-            </span>
-        </div>
+         </section>
 
         <!-- The JavaScript -->
        
