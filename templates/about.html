@@ -1,15 +1,47 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE> New Document </TITLE>
-<META NAME="Generator" CONTENT="EditPlus">
-<META NAME="Author" CONTENT="">
-<META NAME="Keywords" CONTENT="">
-<META NAME="Description" CONTENT="">
-</HEAD>
+{% extends '_base.html' %}
 
-<BODY>
-   <canvas id="myCanvas" width="700" height="670">你的浏览器还不支持哦</canvas>
+{% block extra_css %}
+    <style>
+            body {
+            /*background: #000;
+                /* 60px to make the container go all the way to the bottom of the topbar */
+                /* bootstrap-responsive.css will rewrite it to 0 */
+            overflow:hidden;
+            }
+        </style>
+{% endblock extra_css %}
+
+{% load comments %}
+
+{% block content1 %}
+       
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span4 offset4">
+
+                <canvas id="myCanvas" width="700" height="670">你的浏览器还不支持哦</canvas>
+
+
+
+
+
+            </div>
+            <div class="span10 offset1 panel-description button-text-panel text-center">
+                <div class="padding-middle">
+                   <img class="profile img-circle" src="/static/images/profile.png">
+                   <h4>Bruce的个人网站</h4>
+                   <h5>和朋友们分享我的生活以及快乐。</h5>
+                   <hr class="soften">
+                   <p>                                    
+                   <span class="hidden-phone">这是我的个人网站</span>                  
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <script type="text/javascript">
 function draw() {
 var c=document.getElementById("myCanvas");
@@ -120,5 +152,9 @@ draw();
 
 </script>
 
-</BODY>
-</HTML>
+
+{% endblock  %}
+
+{% block extra_js %}
+<script>
+{% endblock extra_js %}
