@@ -1,47 +1,15 @@
-{% extends '_base.html' %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+</HEAD>
 
-{% block extra_css %}
-    <style>
-            body {
-            /*background: #000;
-                /* 60px to make the container go all the way to the bottom of the topbar */
-                /* bootstrap-responsive.css will rewrite it to 0 */
-            overflow:hidden;
-            }
-        </style>
-{% endblock extra_css %}
-
-{% load comments %}
-
-{% block content1 %}
-       
-
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span4 offset4">
-
-                <canvas id="myCanvas" width="700" height="530">你的浏览器还不支持哦</canvas>
-
-
-
-
-
-            </div>
-            <div class="span10 offset1 panel-description button-text-panel text-center">
-                <div class="padding-middle">
-                   <img class="profile img-circle" src="/static/images/profile.png">
-                   <h4>Bruce的个人网站</h4>
-                   <h5>和朋友们分享我的生活以及快乐。</h5>
-                   <hr class="soften">
-                   <p>                                    
-                   <span class="hidden-phone">这是我的个人网站</span>                  
-                   </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+<BODY>
+   <canvas id="myCanvas" width="700" height="670">你的浏览器还不支持哦</canvas>
 <script type="text/javascript">
 function draw() {
 var c=document.getElementById("myCanvas");
@@ -115,34 +83,34 @@ var c=document.getElementById("myCanvas");
 
 		cxt.strokeStyle ='rgba(199, 199, 197, 1)';
 		cxt.moveTo(205,450);
-		cxt.lineTo(280,600);
+		cxt.lineTo(390,600);
 		cxt.lineTo(185,467);
 		cxt.stroke();
 
 
 		cxt.moveTo(255,331);
-		cxt.lineTo(350,600);
+		cxt.lineTo(390,600);
 		cxt.lineTo(310,325);
 		cxt.stroke();
 
 
-		cxt.moveTo(420,600);
+		cxt.moveTo(390,600);
 		cxt.lineTo(370,280);
 		cxt.stroke();
 
-		cxt.moveTo(420,600);
+		cxt.moveTo(390,600);
 		cxt.lineTo(415,380);
 		cxt.stroke();
 	
-		cxt.moveTo(420,600);
+		cxt.moveTo(390,600);
 		cxt.lineTo(470,340);
 		cxt.stroke();
 	
-		cxt.moveTo(470,600);
+		cxt.moveTo(390,600);
 		cxt.lineTo(570,460);
 		cxt.stroke();
 	
-		cxt.moveTo(470,600);
+		cxt.moveTo(390,600);
 		cxt.lineTo(550,440);
 		cxt.stroke();
 		
@@ -152,9 +120,5 @@ draw();
 
 </script>
 
-
-{% endblock  %}
-
-{% block extra_js %}
-<script>
-{% endblock extra_js %}
+</BODY>
+</HTML>
