@@ -58,9 +58,31 @@ var c=document.getElementById("myCanvas");
         //灰色的大球旁边的小球
         cxt.fillStyle="rgba(199, 199, 199, 1)";
         cxt.beginPath();
-        cxt.arc(270,180,30,0,Math.PI*2,true);
+        cxt.arc(190,160,30,0,Math.PI*2,true);
         cxt.closePath();
         cxt.fill();
+
+		//橙色的大球旁边的小球
+        cxt.fillStyle="rgba(199, 199, 199, 1)";
+        cxt.beginPath();
+        cxt.arc(80,330,75,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+
+		//绿色的大球旁边的小球
+        cxt.fillStyle="rgba(199, 199, 199, 1)";
+        cxt.beginPath();
+        cxt.arc(600,300,50,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+
+		//粉红的大球旁边的小球
+        cxt.fillStyle="rgba(199, 199, 199, 1)";
+        cxt.beginPath();
+        cxt.arc(410,360,30,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+
 
         //蓝色的大球        
         cxt.fillStyle="rgba(27, 138, 190, 1)";
@@ -73,7 +95,7 @@ var c=document.getElementById("myCanvas");
         //粉红的中球
         cxt.fillStyle="rgba(239, 95, 163, 1)";
         cxt.beginPath();
-        cxt.arc(500,240,75,0,Math.PI*2,true);
+        cxt.arc(490,270,75,0,Math.PI*2,true);
         cxt.closePath();
         cxt.fill();
 
@@ -91,7 +113,39 @@ var c=document.getElementById("myCanvas");
         cxt.closePath();
         cxt.fill();
 
+		cxt.strokeStyle ='rgba(199, 199, 197, 1)';
+		cxt.moveTo(205,450);
+		cxt.lineTo(280,600);
+		cxt.lineTo(185,467);
+		cxt.stroke();
 
+
+		cxt.moveTo(255,331);
+		cxt.lineTo(350,600);
+		cxt.lineTo(310,325);
+		cxt.stroke();
+
+
+		cxt.moveTo(420,600);
+		cxt.lineTo(370,280);
+		cxt.stroke();
+
+		cxt.moveTo(420,600);
+		cxt.lineTo(415,380);
+		cxt.stroke();
+	
+		cxt.moveTo(420,600);
+		cxt.lineTo(470,340);
+		cxt.stroke();
+	
+		cxt.moveTo(470,600);
+		cxt.lineTo(570,460);
+		cxt.stroke();
+	
+		cxt.moveTo(470,600);
+		cxt.lineTo(550,440);
+		cxt.stroke();
+		
     }
 }
 draw();
